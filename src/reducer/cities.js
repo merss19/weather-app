@@ -1,4 +1,4 @@
-import { ADD_CITY, DELETE_CITY, LOAD_CITY, START, SUCCESS, FAIL } from '../constants/ActionTypes'
+import { ADD_CITY, DELETE_CITY, LOAD_CITY, START, SUCCESS, FAIL ,AUTO} from '../constants/ActionTypes'
 
 let localCities = JSON.parse(localStorage.getItem('cities'));
 const initialState =localCities || []
