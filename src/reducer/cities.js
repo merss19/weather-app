@@ -1,29 +1,20 @@
 import { ADD_CITY, DELETE_CITY, LOAD_CITY, START, SUCCESS, FAIL } from '../constants/ActionTypes'
 
-const initialState = [
+let localCities = JSON.parse(localStorage.getItem('cities'));
+const initialState =localCities || []
 
-]
-let id = 0
 export default function cities(state = initialState, action) {
-    ++id
+
     switch (action.type) {
-        case ADD_CITY:
-            console.log(action)
-            console.log(state)
-            console.log('ADD_CITYyyyyy')
-        return [
-            {
-                city:action.text,
-                id:id
-            },
-            ...state
-        ]
+
         case DELETE_CITY:
             return state.filter(city =>
                 city.id !== action.id
             )
 
         case LOAD_CITY + SUCCESS:
+            console.log('LOAD_CITY + SUCCESS')
+            console.log(state)
             return [
                 {
                     city:action.data.name,

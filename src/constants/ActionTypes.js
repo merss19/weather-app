@@ -1,9 +1,7 @@
 export const ADD_CITY = 'ADD_CITY'
 export const DELETE_CITY = 'DELETE_CITY'
 export const LOAD_CITY = 'LOAD_CITY'
-export const COMPLETE_TODO = 'COMPLETE_TODO'
-export const COMPLETE_ALL = 'COMPLETE_ALL'
-export const CLEAR_COMPLETED = 'CLEAR_COMPLETED'
+
 
 export const START = '_START'
 export const SUCCESS = '_SUCCESS'

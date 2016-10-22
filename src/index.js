@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory,Redirect } from 'react-router';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import store from './store';
-
-import AuthForm from './components/Forms/AuthForm';
-import ValidationsForm from './components/Forms/ValidationsForm';
-
+import CityHandler from './routeHandlers/CityHandler';
+import Main from './containers/Main';
 
 
 
@@ -42,22 +40,18 @@ httpGet('http://api.openweathermap.org/data/2.5/weather?q=London&appid=b1c0b967a
         error => console.log(`Rejected: ${error}`)
     );
 
-/*const routes = (
-    <Route path="/" component = {App}>
-        <IndexRoute component={Welcome} />
-        <Route path='welcome' component={Welcome}/>
-        <Route path='examples' component={Examples}>
-            <IndexRoute component={AuthForm} />
-            <Route path='auth' component={AuthForm} />
-            <Route path='validations' component={ValidationsForm} />
-        </Route>
-    </Route>
-)*/
+
 
 
 ReactDOM.render((
         <Provider store={store}>
-            <App />
+            <Router history={browserHistory}>
+                <Redirect from = "/" to = "/cities" />
+                <Route path="/" component = { App }>
+                    <Route path="/cities" component = { Main }/>
+                    <Route path = "/cities/:id" component = { CityHandler } />
+                </Route>
+            </Router>
         </Provider>
     ), document.getElementById('root')
 );
