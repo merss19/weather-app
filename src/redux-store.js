@@ -2,7 +2,7 @@ import { compose, createStore, applyMiddleware } from 'redux';
 import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
 
-import reducers from './ducks/index';
+import reducers from './ducks/index'
 
 export default function configureStore(initialState) {
   console.log(initialState)

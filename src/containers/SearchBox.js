@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addCity } from '../actions'
+import { addCity,loadCity } from '../actions'
 //import { searchCity, addCities, getLocation } from '../actions';
 //import Search from '../components/Search';
 //import SearchedCity from '../components/SearchedCity';
@@ -15,8 +15,6 @@ console.log(addCity)
   }
 
   search(e){
-    console.log('search')
-    console.log(this.state.text)
     this.setState({ text: e.target.value })
 
   }
@@ -24,8 +22,10 @@ console.log(addCity)
   save(text){
     console.log('save')
     if (text.length !== 0) {
-      this.props.addCity(text)
+      //this.props.addCity(text)
+        this.props.loadCity(text)
     }
+
   }
 
   searchSubmit(e){
@@ -39,7 +39,9 @@ console.log(addCity)
   }
 
   render() {
-    const { addCity } = this.props
+    const { city, addCity } = this.props
+      console.log('city')
+      console.log(city)
     return (
       <div>
         <form onSubmit ={this.searchSubmit.bind(this)} >
@@ -53,8 +55,8 @@ console.log(addCity)
   }
 }
 export default connect((state) =>{
-  const { cities} = state
-  return {cities}
-},{addCity}
+        const { city } = state
+  return { city}
+},{addCity,loadCity}
 )(SearchBox)
-//export default connect(stateToProps, { searchCity, addCities, getLocation })(SearchContainer);
+

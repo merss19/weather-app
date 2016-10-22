@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import App from './components/App';
-
 import store from './store';
 
 import AuthForm from './components/Forms/AuthForm';
@@ -37,7 +36,7 @@ function httpGet(url) {
     });
 
 }
-httpGet('http://api.openweathermap.org/data/2.5/weather?id=2172797&appid=b1c0b967a2eae065899828eab3a7ae46')
+httpGet('http://api.openweathermap.org/data/2.5/weather?q=London&appid=b1c0b967a2eae065899828eab3a7ae46')
     .then(
         response => console.log(JSON.parse(response)),
         error => console.log(`Rejected: ${error}`)
