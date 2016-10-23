@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { autocompleteDelete} from '../actions'
 import { connect } from 'react-redux';
+import { FormControl,Button, Grid ,Col, Row, Panel} from 'react-bootstrap';
  class Itemcity extends Component {
     render(){
         const {item, selectClick} = this.props
         return (
-            <div onClick = {this.handlerClick.bind(this)}>{item.city }</div>
+            <div className = "item-city" onClick = {this.handlerClick.bind(this)}>{item.city }</div>
 
         )
     }

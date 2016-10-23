@@ -6,6 +6,7 @@ import App from './components/App';
 import store from './store';
 import CityHandler from './routeHandlers/CityHandler';
 import Main from './containers/Main';
+import './app.css';
 
 
 

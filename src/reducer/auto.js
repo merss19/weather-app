@@ -1,7 +1,15 @@
 import { ADD_CITY, DELETE_CITY, LOAD_CITY, START, SUCCESS, FAIL ,AUTO,DELETE_AUTO} from '../constants/ActionTypes'
+import { Record, Map } from 'immutable'
 
+const item = Record({
+    "id": "",
+    "city": ""
+})
 
-const initialState =[]
+const initialState = Map(new item({
+    "id": "",
+    "city": ""
+}))
 
 export default function auto(state = initialState, action) {
 
@@ -10,17 +18,23 @@ export default function auto(state = initialState, action) {
         case AUTO + SUCCESS:
             console.log('AUTO')
             console.log(action)
-            return [
+            console.log(state)
+            console.log(state.toJS())
+            return state.set('id',action.data.id)
+                        .set('city',action.data.name)
+
+            /*return [
                 {
                     city:action.data.name,
                     id:action.data.id,
                 }
-            ]
+            ]*/
 
         case DELETE_AUTO:
             console.log('DELETE_AUTO')
             console.log(action)
-            return []
+            return state.set('id','')
+                        .set('city','')
 
         default:
             return state

@@ -4,9 +4,7 @@ import CityBox from '../components/CityBox';
 import { deleteCity } from '../actions'
 import { Link } from 'react-router'
 import CityDetail from '../containers/CityDetail';
-//import { searchCity, addCities, getLocation } from '../actions';
-//import Search from '../components/Search';
-//import SearchedCity from '../components/SearchedCity';
+import { FormControl,Button, Grid ,Col, Row} from 'react-bootstrap';
 
 class MainContainer extends Component {
 
@@ -17,19 +15,17 @@ class MainContainer extends Component {
     render(){
         const { cities } = this.props
         const list = cities.map((city) =>
-            <li key={city.id}>
+            <Col xs={3} key={city.data.id} className = "city-box">
                 <CityBox cityObj = {city} />
-                <Link to ={`/cities/${city.data.id}`}>
-                   Подробнее
-                </Link>
-            </li>)
+            </Col>)
+
 
         return (
             <div>
                 <h1>Список городов</h1>
-                <ul>
+                <div className="city-box__list">
                     { list }
-                </ul>
+                </div>
 
             </div>
         )
@@ -43,7 +39,10 @@ export default connect((state) =>{
       const { cities } = state
     console.log('cities')
     console.log(cities)
-    localStorage.setItem('cities', JSON.stringify(cities));
+    console.log(cities.toJS())
+    console.log(JSON.stringify(cities.toJS()))
+    localStorage.setItem('cities', JSON.stringify(cities.toJS()));
+    console.log(JSON.parse(localStorage.getItem('cities')))
       return { cities}
     },  { deleteCity }
 )(MainContainer)

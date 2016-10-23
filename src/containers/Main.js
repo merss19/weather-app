@@ -5,14 +5,15 @@ import { deleteCity } from '../actions'
 import { Link } from 'react-router'
 import SearchBox  from './SearchBox';
 import MainContainer from './MainContainer';
+import {  Grid ,Col, Row} from 'react-bootstrap';
 
 export default function Main(props) {
     return (
-        <div>
-            <h1>Погодное одностраничное веб-приложение..</h1>
+        <Grid>
+            <h2>Погодное одностраничное веб-приложение..</h2>
             <SearchBox/>
             <MainContainer/>
-        </div>
+        </Grid>
     )
 }
 

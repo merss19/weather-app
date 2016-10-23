@@ -13,7 +13,7 @@ export default class CityHandler extends Component {
     console.log(this.props.params.id)
 
     return (
-      <div>
+      <div className = "city-detail">
         <CityDetail  id ={ this.props.params.id } />
       </div>
     );
