@@ -28,15 +28,12 @@ export default function cities(state = initialState, action) {
             console.log('LOAD_CITY + SUCCESS')
             console.log(state)
             const isCity = state.find((city) => city.id == action.data.id)
-
             if(!isCity){
-                return  state.push( new itemCity({
-                "id": action.data.id,
-                "city": action.data.name,
-                "data": action.data
-                })
-                )
-            }
+                return state.push( new itemCity({
+                    "id": action.data.id,
+                    "city": action.data.name,
+                    "data": action.data
+                }))}
            /* return [
                 {
                     city:action.data.name,

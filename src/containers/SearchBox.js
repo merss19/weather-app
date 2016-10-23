@@ -16,11 +16,9 @@ console.log(addCity)
 
   search(e){
       e.preventDefault()
-    this.setState({ text: e.target.value })
-      console.log('e.target')
-      console.log(e.target.value)
-      console.log(this.state.text)
-      const text = e.target.value
+    this.setState({ text: e.target.value.trim() })
+
+      const text = e.target.value.trim()
       this.autocomplete(text)
   }
      autocomplete(text){
