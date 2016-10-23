@@ -1,6 +1,4 @@
-# React-Formal Examples
-
-Various examples of using the awesome library for form management [React-Formal](https://github.com/jquense/react-formal)
+# Weather-app (react js)
 
 
 ## Installation
@@ -10,5 +8,3 @@ npm install
 npm start
 ```
 
-
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).

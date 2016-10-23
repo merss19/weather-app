@@ -2,46 +2,37 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FormControl,Button, Grid ,Col, Row, Panel} from 'react-bootstrap';
 
-console.log('CityDetail')
- class CityDetail extends Component {
 
+class CityDetail extends Component {
 
-  render() {
-    const city = this.props.city
-      const data = city.data
-      const img = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`
-      const temp = Math.round(data.main.temp -272.15) + ' C'
-      const desc = data.weather[0].description
-      const main = data.weather[0].main
+    render() {
+        const city = this.props.city
+        const data = city.data
+        const img = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`
+        const temp = Math.round(data.main.temp -272.15) + ' C'
+        const desc = data.weather[0].description
+        const main = data.weather[0].main
 
-      console.log('city-detail')
-      console.log(city)
-    return (
-        <Grid>
-          <Panel>
-              <h2 className = "city-detail__title">{ city.city }</h2>
+        return (
+            <Grid>
+                <Panel>
+                    <h2 className = "city-detail__title">{ city.city }</h2>
 
-              <Row className="show-grid">
-                  <Col xs={3} >humidity: { data.main.humidity }</Col>
-                  <Col xs={3} >pressure: { data.main.pressure }</Col>
-                  <Col xs={3} > <img src={img} alt=""/> { temp }</Col>
-                  <Col xs={3} > { desc } { main }</Col>
-              </Row>
+                    <Row className="show-grid">
+                        <Col xs={3} >humidity: { data.main.humidity }</Col>
+                        <Col xs={3} >pressure: { data.main.pressure }</Col>
+                        <Col xs={3} > <img src={img} alt=""/> { temp }</Col>
+                        <Col xs={3} > { desc } { main }</Col>
+                    </Row>
 
-          </Panel>
-        </Grid>
-    );
+                </Panel>
+            </Grid>
+        )
   }
 }
 
 export default connect((state, { id }) => {
-    console.log('id')
-    console.log(state)
-    console.log(id)
-
     const city = state.cities.find((city) => city.id == id);
-    console.log(city)
-
     return { city }
 })(CityDetail)
 
