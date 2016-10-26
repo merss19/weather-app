@@ -1,4 +1,4 @@
-import { LOAD_CITY, START, SUCCESS, FAIL } from '../constants/ActionTypes'
+import { START, SUCCESS, FAIL } from '../constants/ActionTypes'
 
 function httpGet(url) {
 
@@ -8,7 +8,7 @@ function httpGet(url) {
         xhr.open('GET', url, true);
 
         xhr.onload = function() {
-            if (this.status == 200) {
+            if (this.status === 200) {
                 resolve(this.response);
             } else {
                 var error = new Error(this.statusText);
@@ -36,15 +36,15 @@ export default store => next => action => {
         ...rest
     })
 
+    
     httpGet(api)
         .then(
             response => {
                 let data = JSON.parse(response)
-                console.log('api')
-                console.log(data)
                 return next({type: type + SUCCESS,data,...rest})
             },
             error => {
+                console.log('error')
                 console.log(error)
                 return next({type: type + FAIL, error, ...rest})
             }

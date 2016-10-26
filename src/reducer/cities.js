@@ -1,5 +1,5 @@
 import * as types from '../constants/ActionTypes'
-import { Record, Map, List,fromJS } from 'immutable'
+import { Record, List, Map} from 'immutable'
 
 let localCities = JSON.parse(localStorage.getItem('cities'));
 
@@ -8,6 +8,7 @@ const itemCity = Record({
     "city": "",
     "data":""
 })
+
 
 const initialState = List(localCities) || List()
 
@@ -20,8 +21,9 @@ export default function cities(state = initialState, action) {
                 city.id !== action.id
             )
 
+
         case types.LOAD_CITY + types.SUCCESS:
-            const isCity = state.find((city) => city.id == action.data.id)
+            const isCity = state.find((city) => city.id === action.data.id)
 
             if(!isCity){
                 return state.push( new itemCity({
@@ -30,8 +32,11 @@ export default function cities(state = initialState, action) {
                     "data": action.data
                 }))}
 
+            return state
+
         case types.LOAD_CITY + types.FAIL:
-            console.log(action)
+            return state
+
 
 
 

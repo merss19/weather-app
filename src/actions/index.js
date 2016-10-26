@@ -9,8 +9,7 @@ export function deleteCity(id) {
 }
 
 export function loadCity(city) {
-    console.log('loadCity')
-    console.log(city)
+
   return {
     type: types.LOAD_CITY,
     api: `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=b1c0b967a2eae065899828eab3a7ae46`
@@ -19,8 +18,7 @@ export function loadCity(city) {
 
 
 export function autocomplete(text) {
-    console.log('autocomplete')
-    console.log(text)
+
     return {
         type: types.AUTO,
         api: `http://api.openweathermap.org/data/2.5/weather?q=${text}&appid=b1c0b967a2eae065899828eab3a7ae46`

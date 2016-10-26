@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { FormControl,Button, Grid ,Col, Row, Panel} from 'react-bootstrap';
+import { Grid ,Col, Row, Panel} from 'react-bootstrap';
 
 
 class CityDetail extends Component {
@@ -16,7 +16,7 @@ class CityDetail extends Component {
         return (
             <Grid>
                 <Panel>
-                    <h2 className = "city-detail__title">{ city.city }</h2>
+                    <h2 className="city-detail__title">{ city.city }</h2>
 
                     <Row className="show-grid">
                         <Col xs={3} >humidity: { data.main.humidity }</Col>

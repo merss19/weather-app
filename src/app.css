@@ -37,3 +37,7 @@ a{
 .city-detail{
     padding:50px 0;
 }
+
+.city-box__list{
+    margin: 0 -15px;
+}

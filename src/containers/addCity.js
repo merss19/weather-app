@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
+
 
 
 import SearchBox  from './SearchBox';
@@ -9,7 +9,7 @@ import {  Grid } from 'react-bootstrap';
 export default function addCity(props) {
     return (
         <Grid>
-            <h2>Погодное одностраничное веб-приложение..</h2>
+            <h2>Weather App</h2>
             <SearchBox/>
             <MainContainer/>
         </Grid>

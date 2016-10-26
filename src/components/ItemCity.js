@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 
 export default class Itemcity extends Component {
 
     render(){
-        const { item } = this.props
+        const { item} = this.props
+
 
         return (
-            <div className = "item-city" onClick = {this.handlerClick.bind(this)}>{item.city }</div>
+            <div className="item-city" onClick={this.handlerClick.bind(this)}>{item.city}</div>
         )
     }
 
     handlerClick(){
-        const {item, selectClick,autoClick } = this.props
+        const {item, selectClick, autoClick } = this.props
         selectClick(item.city)
-        autoClick ()
+        autoClick()
+
     }
 
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addCity, loadCity, autocomplete,autocompleteDelete} from '../actions'
 import ItemCity from '../components/ItemCity'
-import { FormControl,Button, Grid ,Col, Row} from 'react-bootstrap';
+import { FormControl,Button,Col, Row} from 'react-bootstrap';
 
 class SearchBox extends Component {
     constructor(props) {
@@ -12,12 +12,12 @@ class SearchBox extends Component {
         }
     }
 
+
     search(e){
         e.preventDefault()
         this.setState({ text: e.target.value.trim() })
-
         const text = e.target.value.trim()
-        this.autocomplete(text)
+         this.autocomplete(text)
     }
 
      autocomplete(text){
@@ -46,24 +46,26 @@ class SearchBox extends Component {
         this.setState({ text: city })
     }
 
+
+
     render() {
-        const { cities, autoObj } = this.props
+        const {autoObj } = this.props
         const autoItem =autoObj.id ?  <ItemCity
-                                        item = {autoObj}
-                                        selectClick ={this.autocompleteClick.bind(this)}
-                                        autoClick = { this.props.autocompleteDelete }
+                                        item={autoObj}
+                                        selectClick={this.autocompleteClick.bind(this)}
+                                        autoClick={this.props.autocompleteDelete }
                                       />
                                    : null
 
         return (
             <div className="search-box">
-                <form onSubmit ={this.searchSubmit.bind(this)} >
+                <form onSubmit={this.searchSubmit.bind(this)} >
 
                     <Row className="show-grid search-box__line">
 
                         <Col xs={8}>
                             <FormControl
-                                value = {this.state.text}
+                                value={this.state.text}
                                 placeholder="Enter city"
                                 type='text'
                                 onChange={this.search.bind(this)}
@@ -72,7 +74,7 @@ class SearchBox extends Component {
                         </Col>
 
                         <Col xs={4}>
-                            <Button bsStyle="primary" className="search-box__btn" type="submit">Add city</Button>
+                            <Button bsStyle="primary" className="search-box__btn" type="submit" >Add city</Button>
                         </Col>
 
                     </Row>
@@ -84,9 +86,11 @@ class SearchBox extends Component {
 }
 
 export default connect((state) =>{
-        const { cities, auto } = state
+        const { auto } = state
         const autoObj = auto.toJS()
-      return { cities, autoObj }
+        console.log('autoObj.city')
+    console.log(autoObj.city)
+      return { autoObj }
 },{addCity, loadCity, autocomplete, autocompleteDelete}
 )(SearchBox)
 
